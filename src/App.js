@@ -1,5 +1,5 @@
 import React from 'react'
-import { useForm } from './components/useForms'
+import { useForm } from './hooks/useForms'
 
 function App() {
   const [input, handleChange] = useForm({ email: '', password: '' })

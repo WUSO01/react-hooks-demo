@@ -5,7 +5,7 @@ export const useForm = (initialValues = {}) => {
 
   const handleInutChange = e => setValues({
     ...values,
-    [e.targe.name]: e.target.value
+    [e.target.name]: e.target.value
   })
   return [values, handleInutChange]
 }
