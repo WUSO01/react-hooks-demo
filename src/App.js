@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react'
 import { useForm } from './hooks/useForms'
 import { Hello } from './Hello'
 
@@ -6,10 +6,20 @@ function App() {
   const [input, handleChange] = useForm({ email: '', password: '' })
   const [isShowHello, setShowHello] = useState(true)
 
+  const inputRef = useRef()
+
+  useEffect(() => {
+    inputRef.current.focus()
+  }, [])
+
+  useLayoutEffect(() => {
+    console.log(inputRef.current.getBoundingClientRect())
+  }, [])
+
   return (
     <div>
       <div>
-        <input name="email" onChange={handleChange} />
+        <input ref={inputRef} name="email" onChange={handleChange} />
       </div>
       <div>
         <input type="password" name="password" onChange={handleChange} />
