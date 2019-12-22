@@ -3,6 +3,7 @@ import { useForm } from './hooks/useForms'
 import { Hello } from './Hello'
 import { Button } from './Button'
 import { Todo } from './components/Todo'
+import AppRouter from './AppRouter'
 
 function App() {
   const [input, handleChange] = useForm({ email: '', password: '' })
@@ -48,6 +49,9 @@ function App() {
       <p>-----------------------</p>
       <h3>useReducer</h3>
       <Todo />
+      <p>-----------------------</p>
+      <h3>useContext</h3>
+      <AppRouter />
     </div>
   )
 }
