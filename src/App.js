@@ -1,16 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useForm } from './hooks/useForms'
-import { useFetch } from './hooks/useFetch'
+import { Hello } from './Hello'
 
 function App() {
   const [input, handleChange] = useForm({ email: '', password: '' })
-  const [number, setNumber] = useState(JSON.parse(localStorage.getItem('number')) || 0)
-
-  const { data, loading } = useFetch(`url/api${number}`)
-
-  useEffect(() => {
-    localStorage.setItem('number', JSON.stringify(number))
-  }, [number])
+  const [isShowHello, setShowHello] = useState(true)
 
   return (
     <div>
@@ -22,17 +16,15 @@ function App() {
       </div>
       <button onClick={() => console.log(input)}>login</button>
       <div>
-        <p>you clicked {number} times</p>
-        <p>
-          {
-            !data && 'loading....'
-          }
-        </p>
-
-        <button onClick={() => setNumber(number => number + 1)}>change number</button>
+        {
+          isShowHello && <Hello />
+        }
+        <button onClick={() => setShowHello(isShowHello => !isShowHello)}>toggle show fetch</button>
       </div>
     </div>
   )
 }
+
+
 
 export default App
