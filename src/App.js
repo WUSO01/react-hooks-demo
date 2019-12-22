@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useLayoutEffect, useCallback } from
 import { useForm } from './hooks/useForms'
 import { Hello } from './Hello'
 import { Button } from './Button'
+import { Todo } from './components/Todo'
 
 function App() {
   const [input, handleChange] = useForm({ email: '', password: '' })
@@ -45,6 +46,8 @@ function App() {
       <Button increment={increment} />
       <div>count: {count}</div>
       <p>-----------------------</p>
+      <h3>useReducer</h3>
+      <Todo />
     </div>
   )
 }
